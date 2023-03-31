@@ -38,6 +38,7 @@ io.on('connection', socket => {
 app.use('/', express.static(path.join(__dirname, 'public')))
 app.use('/', require('./router/root'))
 app.use('/users', require('./router/userRoutes'))
+app.use('/messages', require('./router/messageRoutes'))
 
 app.all('*', (req,res) => {
     res.status(404)
