@@ -28,8 +28,8 @@ const io = new Server(server,{
   
 io.on('connection', socket => {
     console.log(socket.id)
-    socket.on("send message", (message) => {
-        socket.broadcast.emit("receive message", message)
+    socket.on("send message", (sentence) => {
+        socket.broadcast.emit("receive message", sentence)
     })
     
 })
