@@ -21,16 +21,15 @@ app.use(cookieParser())
 
 const io = new Server(server,{
     cors: {
-        origin: "http://localhost:8080",
+        origin: "http://localhost:3000",
         methods: ["GET", "POST"]
     }
 });
   
 io.on('connection', socket => {
     console.log(socket.id)
-    socket.on("send message", message => {
-        io.emit('receive message', message)
-        console.log(message)
+    socket.on("send message", (message) => {
+        socket.broadcast.emit("receive message", message)
     })
     
 })
