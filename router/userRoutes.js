@@ -1,6 +1,9 @@
 const express = require('express')
 const router = express.Router()
 const userControllers = require('../controller/userControllers')
+const verifyJwt = require('../middleware/verifyJwt')
+
+router.use(verifyJwt)
 
 router.route('/')
     .get(userControllers.getAllUsers)
