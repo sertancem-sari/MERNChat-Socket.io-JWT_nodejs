@@ -4,6 +4,10 @@ const messageSchema = new mongoose.Schema({
     sentence: {
         type: String,
         require: true
+    },
+    username: {
+        type: String,
+        require: true
     }
 })
 

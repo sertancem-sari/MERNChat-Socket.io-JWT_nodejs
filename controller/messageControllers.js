@@ -10,11 +10,11 @@ const getAllMessages = asyncHandler(async (req,res) => {
 })
 
 const createNewMessage = asyncHandler(async (req,res) => {
-    const {sentence} = req.body
-    if(!sentence) {
+    const {sentence, username} = req.body
+    if(!sentence || !username) {
         return res.status(206).json({message:'All fileds are required'})
     }
-    const messageInput= {sentence}
+    const messageInput= {sentence, username}
     const newMessage = await Message.create(messageInput)
     if(newMessage) {
         res.status(201).json({message: 'Message created'})
